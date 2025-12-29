@@ -27,6 +27,10 @@ public class Expense {
 		return date;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+	
 	@Override
 	public String toString() {
 		return "Amount: ₹" + expense + " | Category : " + category + " | Date : " + date + " | Note : "

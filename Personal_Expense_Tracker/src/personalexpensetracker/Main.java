@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sca = new Scanner(System.in);
-		
-		ExpenseManager manager = new ExpenseManager();
+		ExpenseDAO dao = new ExpenseDAO();
 		
 		boolean flag = true;
 		
@@ -70,11 +69,19 @@ public class Main {
 				String description = sca.nextLine();
 				
 				Expense expense = new Expense(expenseAmount, category, date, description);
-				manager.addExpense(expense);
+				try {
+					dao.addExpense(expense);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 			}
 			case 2: {
-				manager.viewAllExpense();
+				try {
+					dao.viewAllExpense();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 			}
 			case 3: {
@@ -86,7 +93,11 @@ public class Main {
 					break;
 				}
 				
-				manager.viewByCategory(category);
+				try {
+					dao.viewByCategory(category);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 			}
 			case 4: {
@@ -104,11 +115,16 @@ public class Main {
 					break;
 				}
 				
-				manager.monthlySummary(month, year);
+				try {
+					dao.monthlySummary(month, year);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 			}
 			case 5: {
 				flag = false;
+				System.out.println("Thank you");
 				break;
 			}
 			default:

@@ -1,0 +1,13 @@
+/Personal_Expense_Tracker/
+# Ignore compiled files
+bin/
+out/
+
+# Ignore IDE files
+.classpath
+.project
+.settings/
+.idea/
+
+# Ignore MySQL connector
+mysql-connector-*.jar
